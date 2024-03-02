@@ -83,6 +83,10 @@ public class LinkedList<Data> implements Iterable<Data> {
             head = dataNode;
             head.next = null;
             size++;
+        } else if (index == 0) {
+            dataNode.next = head;
+            head = dataNode;
+            size++;
         } else if (size == 1) {
             Node<Data> addedNode = new Node<>();
             addedNode.data = dataNode.data;

@@ -90,9 +90,9 @@ public class LinkedListTest {
         ll.addToRear(2);
         ll.addToRear(9);
 
-        ll.add(1, 15);
+        ll.add(0, 15);
         assertEquals(ll.count(), 7);
-        assertEquals(ll.get(1), 15);
+        assertEquals(ll.get(0), 15);
     }
 
     @Test
