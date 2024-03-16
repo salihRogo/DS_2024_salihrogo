@@ -23,25 +23,30 @@ public class IPSearch {
 
     }
 
+    public static long convertToIPNumber2(String IPAddress) {
+        String[] split = IPAddress.split("\\.");
+        return (16777216L * Integer.parseInt(split[0])) + (65536L * Integer.parseInt(split[1])) + (256L * Integer.parseInt(split[2])) + Integer.parseInt(split[3]);
+    }
+
     public static long convertToIPNumber(String IPAddress) {
-        String[] splited = new String[IPAddress.length() - 1];
+        String[] split = new String[IPAddress.length() - 1];
         int i = 0;
         int j = 0;
         StringBuilder sb = new StringBuilder();
         for (Character c : IPAddress.toCharArray()) {
             if (c.equals('.')) {
-                splited[i] = sb.toString();
+                split[i] = sb.toString();
                 i++;
                 sb = new StringBuilder();
             } else if (j == IPAddress.length() - 1){
                 sb.append(c);
-                splited[i] = sb.toString();
+                split[i] = sb.toString();
             } else {
                 sb.append(c);
             }
             j++;
         }
 
-        return (16777216L * Integer.parseInt(splited[0])) + (65536L * Integer.parseInt(splited[1])) + (256L * Integer.parseInt(splited[2])) + Integer.parseInt(splited[3]);
+        return (16777216L * Integer.parseInt(split[0])) + (65536L * Integer.parseInt(split[1])) + (256L * Integer.parseInt(split[2])) + Integer.parseInt(split[3]);
     }
 }
